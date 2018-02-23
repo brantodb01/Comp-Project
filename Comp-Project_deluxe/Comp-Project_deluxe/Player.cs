@@ -11,7 +11,7 @@ namespace Comp_Project_deluxe
         private List<Item> inventory = new List<Item>();
         private uint health;
 
-        Player(uint health)
+        public Player(uint health)
         {
             this.health = health;
         }

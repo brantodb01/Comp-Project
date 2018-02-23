@@ -1,6 +1,6 @@
 ﻿namespace Comp_Project_deluxe
 {
-    partial class f_explore
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.
@@ -63,6 +63,7 @@
             this.bn_right.TabIndex = 2;
             this.bn_right.Text = "Right";
             this.bn_right.UseVisualStyleBackColor = true;
+            this.bn_right.Click += new System.EventHandler(this.bn_right_Click);
             // 
             // bn_left
             // 
@@ -73,6 +74,7 @@
             this.bn_left.TabIndex = 3;
             this.bn_left.Text = "Left";
             this.bn_left.UseVisualStyleBackColor = true;
+            this.bn_left.Click += new System.EventHandler(this.bn_left_Click);
             // 
             // bn_down
             // 
@@ -82,6 +84,7 @@
             this.bn_down.TabIndex = 4;
             this.bn_down.Text = "Down";
             this.bn_down.UseVisualStyleBackColor = true;
+            this.bn_down.Click += new System.EventHandler(this.bn_down_Click);
             // 
             // tb_input
             // 
@@ -91,7 +94,7 @@
             this.tb_input.Size = new System.Drawing.Size(335, 38);
             this.tb_input.TabIndex = 5;
             // 
-            // f_explore
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +105,7 @@
             this.Controls.Add(this.bn_right);
             this.Controls.Add(this.bn_up);
             this.Controls.Add(this.tb_output);
-            this.Name = "f_explore";
+            this.Name = "Game";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.f_explore_Load);
             this.ResumeLayout(false);
