@@ -17,6 +17,7 @@ namespace Comp_Project_deluxe
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Game());
+            
         }
     }
 }

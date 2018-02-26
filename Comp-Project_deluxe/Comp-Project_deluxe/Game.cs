@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Comp_Project_deluxe.Game;
 
 namespace Comp_Project_deluxe
 {
@@ -19,55 +20,76 @@ namespace Comp_Project_deluxe
 
         Player player; // Our player
         Room currRoom; // The current room we're in
+        Panel currPanel; // The current panel we've highlighted (representing the room we're in)
+        Room r1;
+        Room r2;
+        Room r3;
+        Room r4;
+        Room r5;
+        Room r6;
+        Room r7;
+        Room r8;
+        Room r9;
+        Room r10;
+        Room r11;
+        Room r12;
+        Room r13;
+        Dictionary<Room, Panel> panelDictionary = new Dictionary<Room, Panel>();
+        Room lastRoom;
 
         public Game()
         {
             InitializeComponent();
 
             player = new Player(INIT_PLAYER_HEALTH);
-            Room r1 = new Room();
-            Room r2 = new Room();
-            Room r3 = new Room();
-            Room r4 = new Room();
-            Room r5 = new Room();
-            Room r6 = new Room();
-            Room r7 = new Room();
-            Room r8 = new Room();
+            r1 = new Room();
+            r2 = new Room();
+            r3 = new Room();
+            r4 = new Room();
+            r5 = new Room();
+            r6 = new Room();
+            r7 = new Room();
+            r8 = new Room();
+            r9 = new Room();
+            r10 = new Room();
+            r11 = new Room();
+            r12 = new Room();
+            r13 = new Room();
 
-            addRoom(r1, r2, Orientation.RIGHT);
-            addRoom(r2, r3, Orientation.RIGHT);
-            addRoom(r2, r4, Orientation.UP);
-            addRoom(r4, r5, Orientation.UP);
-            addRoom(r5, r6, Orientation.LEFT);
-            addRoom(r5, r7, Orientation.RIGHT);
-            addRoom(r5, r8, Orientation.UP);
+            r1.addNeighbour(r2, Orientation.RIGHT);
+            r2.addNeighbour(r3, Orientation.RIGHT);
+            r2.addNeighbour(r4, Orientation.UP);
+            r4.addNeighbour(r5, Orientation.UP);
+            r5.addNeighbour(r6, Orientation.LEFT);
+            r5.addNeighbour(r7, Orientation.RIGHT);
+            r5.addNeighbour(r8, Orientation.UP);
+            r8.addNeighbour(r9, Orientation.UP);
+            r9.addNeighbour(r10, Orientation.LEFT);
+            r9.addNeighbour(r11, Orientation.RIGHT);
+            r9.addNeighbour(r12, Orientation.UP);
+            r12.addNeighbour(r13, Orientation.UP);
 
             currRoom = r2;
+
+            panelDictionary.Add(r1, pnl_room1);
+            panelDictionary.Add(r2, pnl_room2);
+            panelDictionary.Add(r3, pnl_room3);
+            panelDictionary.Add(r4, pnl_room4);
+            panelDictionary.Add(r5, pnl_room5);
+            panelDictionary.Add(r6, pnl_room6);
+            panelDictionary.Add(r7, pnl_room7);
+            panelDictionary.Add(r8, pnl_room8);
+            panelDictionary.Add(r9, pnl_room9);
+            panelDictionary.Add(r10, pnl_room10);
+            panelDictionary.Add(r11, pnl_room11);
+            panelDictionary.Add(r12, pnl_room12);
+            panelDictionary.Add(r13, pnl_room13);
+
+            currPanel = (Panel)Controls.Find("pnl_room2", true)[0];
+            currPanel.BackColor = Color.Black; // Set the starting room's background colour to black
+
         }
 
-        // Links a and b together.
-        void addRoom(Room a, Room b, Orientation orientation)
-        {
-            switch (orientation)
-            {
-                case Orientation.UP:
-                    a.aboveNeighbour = b;
-                    b.belowNeighbour = a;
-                    break;
-                case Orientation.DOWN:
-                    a.belowNeighbour = b;
-                    b.aboveNeighbour = a;
-                    break;
-                case Orientation.LEFT:
-                    a.leftNeighbour = b;
-                    b.rightNeighbour = a;
-                    break;
-                case Orientation.RIGHT:
-                    a.rightNeighbour = b;
-                    b.leftNeighbour = a;
-                    break;
-            }
-        }
 
         private void f_explore_Load(object sender, EventArgs e) {}
 
@@ -75,6 +97,17 @@ namespace Comp_Project_deluxe
         bool isValidMove(Orientation orientation)
         {
             // check if user move is valid t if yes f if no
+            //return true; // QWFX
+            return currRoom.hasNeighbour(orientation);
+        }
+
+
+        private void updateRoomPanel()
+        {
+            //Panel panel = (Panel)Controls.Find("pnl_room3", true)[0];
+            panelDictionary[lastRoom].BackColor = Color.Transparent; // Set the old room's background to nothing
+            panelDictionary[currRoom].BackColor = Color.Black;
+
         }
 
         private void move(Orientation orientation)
@@ -82,6 +115,9 @@ namespace Comp_Project_deluxe
             if (isValidMove(orientation))
             {
                 // Do stuff
+                lastRoom = currRoom;
+                currRoom = currRoom.getNeighbour(orientation);
+                updateRoomPanel();
             }
             else
             {
@@ -91,20 +127,25 @@ namespace Comp_Project_deluxe
 
         private void bn_up_Click(object sender, EventArgs e)
         {
-            
+            move(Orientation.UP);
         }
 
         private void bn_right_Click(object sender, EventArgs e)
         {
-
+            move(Orientation.RIGHT);
         }
 
         private void bn_down_Click(object sender, EventArgs e)
         {
-
+            move(Orientation.DOWN);
         }
 
         private void bn_left_Click(object sender, EventArgs e)
+        {
+            move(Orientation.LEFT);
+        }
+
+        private void pnl_room2_Paint(object sender, PaintEventArgs e)
         {
 
         }

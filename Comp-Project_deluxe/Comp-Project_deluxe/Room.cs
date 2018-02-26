@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Comp_Project_deluxe.Game;
 
 namespace Comp_Project_deluxe
 {
@@ -20,25 +21,61 @@ namespace Comp_Project_deluxe
         }
 
         // Returns true if this room has a neighbour in the said location, else false
-        public bool hasNeighbour(Direction location)
+        public bool hasNeighbour(Orientation location)
         {
             switch (location)
             {
-                case Direction.UP: return aboveNeighbour != null;
-                case Direction.DOWN: return belowNeighbour != null;
-                case Direction.LEFT: return leftNeighbour != null;
-                case Direction.RIGHT: return rightNeighbour != null;
+                case Orientation.UP: return aboveNeighbour != null;
+                case Orientation.DOWN: return belowNeighbour != null;
+                case Orientation.LEFT: return leftNeighbour != null;
+                case Orientation.RIGHT: return rightNeighbour != null;
             }
+            throw new Exception("magic");
+        }
 
-            throw new Exception("It's gone to shit");
+        public Room getNeighbour(Orientation location)
+        {
+            switch (location)
+            {
+                case Orientation.UP: return aboveNeighbour;
+                case Orientation.DOWN: return belowNeighbour;
+                case Orientation.LEFT: return leftNeighbour;
+                case Orientation.RIGHT: return rightNeighbour;
+            }
+            throw new Exception("magic");
         }
 
         public override string ToString()
         {
             return string.Format(
-                "Room [numItems={0}, aboveNeighbour={1}, belowNeighbout={2}, leftNeighbout={3}, rightNeighbour={4}]",
-                items.Count(), hasNeighbour(Direction.UP), hasNeighbour(Direction.DOWN), hasNeighbour(Direction.LEFT), 
-                hasNeighbour(Direction.RIGHT));
+                "Room [numItems={0}, aboveNeighbour={1}, belowNeighbour={2}, leftNeighbour={3}, rightNeighbour={4}]",
+                items.Count(), hasNeighbour(Orientation.UP), hasNeighbour(Orientation.DOWN), hasNeighbour(Orientation.LEFT), 
+                hasNeighbour(Orientation.RIGHT));
         }
+
+        // Links a and b together.
+        public void addNeighbour(Room b, Orientation orientation)
+        {
+            switch (orientation)
+            {
+                case Orientation.UP:
+                    aboveNeighbour = b;
+                    b.belowNeighbour = this;
+                    break;
+                case Orientation.DOWN:
+                    belowNeighbour = b;
+                    b.aboveNeighbour = this;
+                    break;
+                case Orientation.LEFT:
+                    leftNeighbour = b;
+                    b.rightNeighbour = this;
+                    break;
+                case Orientation.RIGHT:
+                    rightNeighbour = b;
+                    b.leftNeighbour = this;
+                    break;
+            }
+        }
+
     }
 }
