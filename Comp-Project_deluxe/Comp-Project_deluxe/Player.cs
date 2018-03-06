@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace Comp_Project_deluxe
 {
-    class Player
+    public class Player
     {
-        private List<Item> inventory = new List<Item>();
-        private uint health;
+        public List<Item> inventory { get; }
+        public uint health { get; set; }
 
         public Player(uint health)
         {
+            inventory = new List<Item>();
             this.health = health;
+        }
+
+        public void itemAdd(Item item)
+        {
+            inventory.Add(item);
         }
     }
 }

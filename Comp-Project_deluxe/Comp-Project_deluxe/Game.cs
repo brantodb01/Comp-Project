@@ -18,7 +18,7 @@ namespace Comp_Project_deluxe
 
         const uint INIT_PLAYER_HEALTH = 100;
 
-        Player player; // Our player
+        public static Player player; // Our player
         Room currRoom; // The current room we're in
         Panel currPanel; // The current panel we've highlighted (representing the room we're in)
         Room r1;
@@ -36,6 +36,7 @@ namespace Comp_Project_deluxe
         Room r13;
         Dictionary<Room, Panel> panelDictionary = new Dictionary<Room, Panel>();
         Room lastRoom;
+        ShopForm Shop = new ShopForm();
 
         public Game()
         {
@@ -71,21 +72,21 @@ namespace Comp_Project_deluxe
 
             currRoom = r2;
 
-            panelDictionary.Add(r1, pnl_room1);
-            panelDictionary.Add(r2, pnl_room2);
-            panelDictionary.Add(r3, pnl_room3);
-            panelDictionary.Add(r4, pnl_room4);
-            panelDictionary.Add(r5, pnl_room5);
-            panelDictionary.Add(r6, pnl_room6);
-            panelDictionary.Add(r7, pnl_room7);
-            panelDictionary.Add(r8, pnl_room8);
-            panelDictionary.Add(r9, pnl_room9);
-            panelDictionary.Add(r10, pnl_room10);
-            panelDictionary.Add(r11, pnl_room11);
-            panelDictionary.Add(r12, pnl_room12);
-            panelDictionary.Add(r13, pnl_room13);
+            panelDictionary.Add(r1, E_pnl_room1);
+            panelDictionary.Add(r2, E_pnl_room2);
+            panelDictionary.Add(r3, E_pnl_room3);
+            panelDictionary.Add(r4, E_pnl_room4);
+            panelDictionary.Add(r5, E_pnl_room5);
+            panelDictionary.Add(r6, E_pnl_room6);
+            panelDictionary.Add(r7, E_pnl_room7);
+            panelDictionary.Add(r8, E_pnl_room8);
+            panelDictionary.Add(r9, E_pnl_room9);
+            panelDictionary.Add(r10, E_pnl_room10);
+            panelDictionary.Add(r11, E_pnl_room11);
+            panelDictionary.Add(r12, E_pnl_room12);
+            panelDictionary.Add(r13, E_pnl_room13);
 
-            currPanel = (Panel)Controls.Find("pnl_room2", true)[0];
+            currPanel = (Panel)Controls.Find("E_pnl_room2", true)[0];
             currPanel.BackColor = Color.Black; // Set the starting room's background colour to black
 
         }
@@ -123,24 +124,30 @@ namespace Comp_Project_deluxe
             {
                 // Moan
             }
+
+            if (currRoom == r4 ) 
+            {
+                Shop.Show();
+            }
+            
         }
 
-        private void bn_up_Click(object sender, EventArgs e)
+        private void E_btn_up_Click(object sender, EventArgs e)
         {
             move(Orientation.UP);
         }
 
-        private void bn_right_Click(object sender, EventArgs e)
+        private void E_btn_right_Click(object sender, EventArgs e)
         {
             move(Orientation.RIGHT);
         }
 
-        private void bn_down_Click(object sender, EventArgs e)
+        private void E_btn_down_Click(object sender, EventArgs e)
         {
             move(Orientation.DOWN);
         }
 
-        private void bn_left_Click(object sender, EventArgs e)
+        private void E_btn_left_Click(object sender, EventArgs e)
         {
             move(Orientation.LEFT);
         }
@@ -148,6 +155,16 @@ namespace Comp_Project_deluxe
         private void pnl_room2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pnl_room12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void E_btn_inventory_Click(object sender, EventArgs e)
+        {
+            new Inventory().Show();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Comp_Project_deluxe
 {
     // abstract means that we cannot instansiate a new 'Item' - only one of its subclasses
-    abstract class Item
+    public abstract class Item
     {
         public uint value { get; }
 
