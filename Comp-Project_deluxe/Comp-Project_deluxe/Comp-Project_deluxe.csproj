@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="battle_r1.cs">
+    <Compile Include="Arena.cs" />
+    <Compile Include="ArenaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="battle_r1.Designer.cs">
-      <DependentUpon>battle_r1.cs</DependentUpon>
+    <Compile Include="ArenaForm.Designer.cs">
+      <DependentUpon>ArenaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
@@ -69,14 +70,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="Shop.cs" />
     <Compile Include="ShopForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShopForm.Designer.cs">
       <DependentUpon>ShopForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="battle_r1.resx">
-      <DependentUpon>battle_r1.cs</DependentUpon>
+    <EmbeddedResource Include="ArenaForm.resx">
+      <DependentUpon>ArenaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>

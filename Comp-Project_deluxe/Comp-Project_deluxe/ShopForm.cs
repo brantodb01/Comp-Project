@@ -12,10 +12,6 @@ namespace Comp_Project_deluxe
 {
     public partial class ShopForm : Form
     {
-        Dagger a = new Dagger(5);
-        Dagger b = new Dagger(10);
-        Dagger c = new Dagger(15);
-        Dagger d = new Dagger(20);
 
 
         public ShopForm()
@@ -25,27 +21,30 @@ namespace Comp_Project_deluxe
 
         private void ShopForm_Load(object sender, EventArgs e)
         {
-            s_txt_1.Text = a.ToString();
+            s_txt_1.Text = Shop.shopItemA.ToString();
+            s_txt_2.Text = Shop.shopItemB.ToString();
+            s_txt_3.Text = Shop.shopItemC.ToString();
+            s_txt_4.Text = Shop.shopItemD.ToString();
         }
 
         private void s_btn_4_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(d);
+            Game.player.itemAdd(Shop.shopItemD);
         }
 
         private void s_btn_3_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(c);
+            Game.player.itemAdd(Shop.shopItemC);
         }
 
         private void s_btn_2_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(b);
+            Game.player.itemAdd(Shop.shopItemB);
         }
 
         private void s_btn_1_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(a);
+            Game.player.itemAdd(Shop.shopItemA);
         }
 
         private void s_txt_title_TextChanged(object sender, EventArgs e)

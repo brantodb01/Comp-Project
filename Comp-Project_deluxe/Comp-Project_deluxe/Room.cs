@@ -15,11 +15,6 @@ namespace Comp_Project_deluxe
         public Room leftNeighbour { get; set; }
         public Room rightNeighbour { get; set; }
 
-        public Room()
-        {
-            this.items = new List<Item>();
-        }
-
         // Returns true if this room has a neighbour in the said location, else false
         public bool hasNeighbour(Orientation location)
         {
@@ -76,6 +71,11 @@ namespace Comp_Project_deluxe
                     break;
             }
         }
+
+
+
+
+
 
     }
 }

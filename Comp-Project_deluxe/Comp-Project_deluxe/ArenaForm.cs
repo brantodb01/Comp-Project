@@ -15,11 +15,17 @@ namespace Comp_Project_deluxe
         public battle_r1()
         {
             InitializeComponent();
+            B_txt_playerHealth.Text = Game.player.health.ToString();
+        }
+
+        public void bRefresh()
+        {
+            B_txt_playerHealth.Text = Game.player.health.ToString();
         }
 
         private void B_txt_playerHealth_TextChanged(object sender, EventArgs e)
         {
-            B_txt_playerHealth.Text = Game.player.health.ToString();
+            
         }
 
         private void B_txt_output_TextChanged(object sender, EventArgs e)
@@ -49,6 +55,8 @@ namespace Comp_Project_deluxe
 
         private void B_btn_Escape_Click(object sender, EventArgs e)
         {
+            Hide();
+            
 
         }
     }

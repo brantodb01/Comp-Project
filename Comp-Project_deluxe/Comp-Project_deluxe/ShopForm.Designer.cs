@@ -102,33 +102,33 @@
             // 
             // s_txt_1
             // 
-            this.s_txt_1.Location = new System.Drawing.Point(162, 148);
+            this.s_txt_1.Location = new System.Drawing.Point(150, 148);
             this.s_txt_1.Name = "s_txt_1";
-            this.s_txt_1.Size = new System.Drawing.Size(150, 20);
+            this.s_txt_1.Size = new System.Drawing.Size(162, 20);
             this.s_txt_1.TabIndex = 26;
             this.s_txt_1.TextChanged += new System.EventHandler(this.s_txt_1_TextChanged);
             // 
             // s_txt_2
             // 
-            this.s_txt_2.Location = new System.Drawing.Point(162, 195);
+            this.s_txt_2.Location = new System.Drawing.Point(150, 195);
             this.s_txt_2.Name = "s_txt_2";
-            this.s_txt_2.Size = new System.Drawing.Size(150, 20);
+            this.s_txt_2.Size = new System.Drawing.Size(162, 20);
             this.s_txt_2.TabIndex = 27;
             this.s_txt_2.TextChanged += new System.EventHandler(this.s_txt_2_TextChanged);
             // 
             // s_txt_3
             // 
-            this.s_txt_3.Location = new System.Drawing.Point(162, 248);
+            this.s_txt_3.Location = new System.Drawing.Point(150, 248);
             this.s_txt_3.Name = "s_txt_3";
-            this.s_txt_3.Size = new System.Drawing.Size(150, 20);
+            this.s_txt_3.Size = new System.Drawing.Size(162, 20);
             this.s_txt_3.TabIndex = 28;
             this.s_txt_3.TextChanged += new System.EventHandler(this.s_txt_3_TextChanged);
             // 
             // s_txt_4
             // 
-            this.s_txt_4.Location = new System.Drawing.Point(162, 301);
+            this.s_txt_4.Location = new System.Drawing.Point(150, 301);
             this.s_txt_4.Name = "s_txt_4";
-            this.s_txt_4.Size = new System.Drawing.Size(150, 20);
+            this.s_txt_4.Size = new System.Drawing.Size(162, 20);
             this.s_txt_4.TabIndex = 29;
             this.s_txt_4.TextChanged += new System.EventHandler(this.s_txt_4_TextChanged);
             // 
