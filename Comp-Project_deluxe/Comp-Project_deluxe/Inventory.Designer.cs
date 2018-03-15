@@ -51,35 +51,35 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 90);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 20);
+            this.textBox1.Size = new System.Drawing.Size(234, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(12, 135);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 20);
+            this.textBox2.Size = new System.Drawing.Size(234, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(12, 182);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 20);
+            this.textBox3.Size = new System.Drawing.Size(234, 20);
             this.textBox3.TabIndex = 2;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(12, 276);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(209, 20);
+            this.textBox5.Size = new System.Drawing.Size(234, 20);
             this.textBox5.TabIndex = 4;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(12, 228);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(209, 20);
+            this.textBox6.Size = new System.Drawing.Size(234, 20);
             this.textBox6.TabIndex = 5;
             // 
             // I_btn_1

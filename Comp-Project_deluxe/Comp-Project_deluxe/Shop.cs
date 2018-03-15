@@ -16,10 +16,10 @@ namespace Comp_Project_deluxe
 
         public Shop()
         {
-            shopItemA = new Dagger(5);
-            shopItemB = new Dagger(10);
-            shopItemC = new Dagger(15);
-            shopItemD = new Dagger(20);
+            shopItemA = new Dagger(5,5,5);
+            shopItemB = new Dagger(10,10,10);
+            shopItemC = new Dagger(15,15,15);
+            shopItemD = new Dagger(20,20,20);
         }
     
     }

@@ -9,7 +9,7 @@ namespace Comp_Project_deluxe
     // abstract means that we cannot instansiate a new 'Item' - only one of its subclasses
     public abstract class Item
     {
-        public uint value { get; }
+        public uint value { get; set; }
 
         // protected means that only subclasses and this class can access it
         protected Item(uint value)
@@ -18,18 +18,33 @@ namespace Comp_Project_deluxe
         }
     }
 
-    class Dagger : Item
+    public abstract class Melee : Item
     {
-        public uint damage { get; }
+        public decimal Maccuarcy { get; set; }  
+        public uint Mdamage { get; set; }
 
-        public Dagger(uint damage) : base(12)
+        public Melee(uint value, decimal accuracy, uint Mdamage) : base(value)
         {
-            this.damage = damage;
+            this.Mdamage = Mdamage;
+            this.Maccuarcy = Maccuarcy;
+
+        }
+    }
+
+    class Dagger : Melee
+    {
+        uint accuracy;
+        uint damage;
+
+        public Dagger(uint value, uint Mdamage, uint Maccuracy) : base(value, Game.player.rangedD, Game.player.meleeD)
+        {
+            damage = Mdamage;
+            accuracy = Maccuracy;
         }
 
         public override string ToString()
         {
-            return string.Format("Dagger [value={0}, damage={1}]", value, damage);
+            return string.Format("Dagger [value={0}, damage={1}, accuracy={2}]", value, damage,accuracy);
         }
     }
 }

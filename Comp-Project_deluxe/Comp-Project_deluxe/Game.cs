@@ -16,13 +16,25 @@ namespace Comp_Project_deluxe
     {
         public enum Orientation { UP, DOWN, LEFT, RIGHT }
 
-        const uint INIT_PLAYER_HEALTH = 100; 
+        // Player constants
+
+        public const uint INIT_PLAYER_HEALTH = 100;
+        public const uint INIT_PLAYER_MELEED = 3;
+        public const uint INIT_PLAYER_RANGEDD = 5;
+
+        //Boss constants
+
+        public const uint INIT_APPLEBOSS_HEALTH = 20;
+        public const uint INIT_APPLEBOSS_MELEEDAMAGE = 1;
+        public const uint INIT_APPLEBOSS_RANGEDDAMAGE = 3;
+        public const uint INIT_APPLEBOSS_ACCURACY = 80;
+
         public static Player player; // Our player
         Room currRoom; // The current room we're in
         Panel currPanel; // The current panel we've highlighted (representing the room we're in)
         Room  r2, r5, r9;
         Shop r4, r8, r12;
-        Arena r1, r3, r6, r7, r10, r11, r13;
+        public static Arena r1, r3, r6, r7, r10, r11, r13;
         Dictionary<Room, Panel> panelDictionary = new Dictionary<Room, Panel>();
         Room lastRoom;
         ShopForm Shop = new ShopForm();
@@ -31,7 +43,7 @@ namespace Comp_Project_deluxe
         {
             InitializeComponent();
 
-            player = new Player(INIT_PLAYER_HEALTH);
+            player = new Player(INIT_PLAYER_HEALTH, INIT_PLAYER_MELEED, INIT_PLAYER_RANGEDD);
             r1 = new Arena();
             r2 = new Room();
             r3 = new Arena();
@@ -41,7 +53,7 @@ namespace Comp_Project_deluxe
             r7 = new Arena();
             r8 = new Shop();
             r9 = new Room();
-            r10 = new Arena();
+            r10 = new Arena( );
             r11 = new Arena();
             r12 = new Shop();
             r13 = new Arena();
@@ -79,10 +91,37 @@ namespace Comp_Project_deluxe
             currPanel = (Panel)Controls.Find("E_pnl_room2", true)[0];
             currPanel.BackColor = Color.Black; // Set the starting room's background colour to black
 
+
         }
 
 
         private void f_explore_Load(object sender, EventArgs e) {}
+
+        private void E_btn_shop_Click(object sender, EventArgs e)
+        {
+            // if the room is a shop opens its shop form
+
+            if (currRoom.GetType() == typeof(Shop))
+            {
+                ((Shop)currRoom).vShop.ShowDialog();
+            }
+            else
+            {
+                E_tb_output.Text += "There is no shop in this room" + Environment.NewLine;
+            }
+        }
+
+        private void E_btn_battle_Click(object sender, EventArgs e)
+        {
+            if (currRoom.GetType() == typeof(Arena))
+            {
+                ((Arena)currRoom).vArena.ShowDialog();
+            }
+            else
+            {
+                E_tb_output.Text += "There is no enemy in this room" + Environment.NewLine;
+            }
+        }
 
         // 
         bool isValidMove(Orientation orientation)
@@ -114,20 +153,7 @@ namespace Comp_Project_deluxe
             {
                 // Moan
             }
-            
-            // if the room is a shop opens its shop form
-
-            if (currRoom.GetType() == typeof(Shop)) 
-            {
-                ((Shop)currRoom).vShop.ShowDialog();
-            }
-
-            // if the room is a shop opens its shop form
-
-            if (currRoom.GetType() == typeof(Arena))
-            {
-                ((Arena)currRoom).vArena.ShowDialog();
-            }
+           
         }
        
         private void E_btn_up_Click(object sender, EventArgs e)

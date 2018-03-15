@@ -53,6 +53,7 @@
     <Compile Include="ArenaForm.Designer.cs">
       <DependentUpon>ArenaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="boss.cs" />
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>

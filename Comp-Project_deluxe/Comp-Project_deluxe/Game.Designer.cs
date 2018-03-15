@@ -33,7 +33,6 @@
             this.E_btn_right = new System.Windows.Forms.Button();
             this.E_btn_left = new System.Windows.Forms.Button();
             this.E_btn_down = new System.Windows.Forms.Button();
-            this.E_tb_input = new System.Windows.Forms.TextBox();
             this.E_pnl_room2 = new System.Windows.Forms.Panel();
             this.E_pnl_room4 = new System.Windows.Forms.Panel();
             this.E_pnl_room1 = new System.Windows.Forms.Panel();
@@ -48,6 +47,8 @@
             this.E_pnl_room12 = new System.Windows.Forms.Panel();
             this.E_pnl_room13 = new System.Windows.Forms.Panel();
             this.E_btn_inventory = new System.Windows.Forms.Button();
+            this.E_btn_shop = new System.Windows.Forms.Button();
+            this.E_btn_battle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // E_tb_output
@@ -56,6 +57,7 @@
             this.E_tb_output.Multiline = true;
             this.E_tb_output.Name = "E_tb_output";
             this.E_tb_output.ReadOnly = true;
+            this.E_tb_output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.E_tb_output.Size = new System.Drawing.Size(335, 264);
             this.E_tb_output.TabIndex = 0;
             // 
@@ -99,14 +101,6 @@
             this.E_btn_down.Text = "Down";
             this.E_btn_down.UseVisualStyleBackColor = true;
             this.E_btn_down.Click += new System.EventHandler(this.E_btn_down_Click);
-            // 
-            // E_tb_input
-            // 
-            this.E_tb_input.Location = new System.Drawing.Point(82, 341);
-            this.E_tb_input.Multiline = true;
-            this.E_tb_input.Name = "E_tb_input";
-            this.E_tb_input.Size = new System.Drawing.Size(335, 38);
-            this.E_tb_input.TabIndex = 5;
             // 
             // E_pnl_room2
             // 
@@ -224,11 +218,33 @@
             this.E_btn_inventory.UseVisualStyleBackColor = true;
             this.E_btn_inventory.Click += new System.EventHandler(this.E_btn_inventory_Click);
             // 
+            // E_btn_shop
+            // 
+            this.E_btn_shop.Location = new System.Drawing.Point(117, 376);
+            this.E_btn_shop.Name = "E_btn_shop";
+            this.E_btn_shop.Size = new System.Drawing.Size(75, 23);
+            this.E_btn_shop.TabIndex = 10;
+            this.E_btn_shop.Text = "Shop";
+            this.E_btn_shop.UseVisualStyleBackColor = true;
+            this.E_btn_shop.Click += new System.EventHandler(this.E_btn_shop_Click);
+            // 
+            // E_btn_battle
+            // 
+            this.E_btn_battle.Location = new System.Drawing.Point(291, 376);
+            this.E_btn_battle.Name = "E_btn_battle";
+            this.E_btn_battle.Size = new System.Drawing.Size(75, 23);
+            this.E_btn_battle.TabIndex = 11;
+            this.E_btn_battle.Text = "Battle";
+            this.E_btn_battle.UseVisualStyleBackColor = true;
+            this.E_btn_battle.Click += new System.EventHandler(this.E_btn_battle_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 563);
+            this.Controls.Add(this.E_btn_battle);
+            this.Controls.Add(this.E_btn_shop);
             this.Controls.Add(this.E_btn_inventory);
             this.Controls.Add(this.E_pnl_room13);
             this.Controls.Add(this.E_pnl_room12);
@@ -243,7 +259,6 @@
             this.Controls.Add(this.E_pnl_room1);
             this.Controls.Add(this.E_pnl_room4);
             this.Controls.Add(this.E_pnl_room2);
-            this.Controls.Add(this.E_tb_input);
             this.Controls.Add(this.E_btn_down);
             this.Controls.Add(this.E_btn_left);
             this.Controls.Add(this.E_btn_right);
@@ -264,7 +279,6 @@
         private System.Windows.Forms.Button E_btn_right;
         private System.Windows.Forms.Button E_btn_left;
         private System.Windows.Forms.Button E_btn_down;
-        private System.Windows.Forms.TextBox E_tb_input;
         private System.Windows.Forms.Panel E_pnl_room2;
         private System.Windows.Forms.Panel E_pnl_room4;
         private System.Windows.Forms.Panel E_pnl_room1;
@@ -279,6 +293,8 @@
         private System.Windows.Forms.Panel E_pnl_room12;
         private System.Windows.Forms.Panel E_pnl_room13;
         private System.Windows.Forms.Button E_btn_inventory;
+        private System.Windows.Forms.Button E_btn_shop;
+        private System.Windows.Forms.Button E_btn_battle;
     }
 }
 

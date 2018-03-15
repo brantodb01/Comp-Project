@@ -7,7 +7,7 @@ using static Comp_Project_deluxe.Game;
 
 namespace Comp_Project_deluxe
 {
-    class Room
+    public class Room
     {
         public List<Item> items { get; set; }
         public Room aboveNeighbour { get; set; }
