@@ -140,19 +140,24 @@ namespace Comp_Project_deluxe
         {
             if (Game.player.inventory.Count() > index)
             {
-                if (Game.player.meleeWeapon != null)
+                if (Game.player.inventory[index] is Melee)
                 {
-                    temp = Game.player.meleeWeapon;
+                    if (Game.player.meleeWeapon != null)
+                    {
+                        temp = Game.player.meleeWeapon;
+                    }
+                    Game.player.meleeWeapon = (Melee)Game.player.inventory[index];
+                    Game.player.inventory.RemoveAt(index);
+                    if (temp != null)
+                    {
+                        Game.player.itemAdd(temp);
+                    }
                 }
-                Game.player.meleeWeapon = (Game.player.inventory[index]);
-                Game.player.inventory.RemoveAt(index);
-                if (temp != null)
-                {
-                    Game.player.itemAdd(temp);
-                }
+
                 
                 
                 iRefresh();
+                Game.player.pRefresh();
             }
         }
 

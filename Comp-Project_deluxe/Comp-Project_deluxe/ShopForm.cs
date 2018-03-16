@@ -25,26 +25,41 @@ namespace Comp_Project_deluxe
             s_txt_2.Text = Shop.shopItemB.ToString();
             s_txt_3.Text = Shop.shopItemC.ToString();
             s_txt_4.Text = Shop.shopItemD.ToString();
+            s_txt_money.Text = Game.player.gold.ToString();
+        }
+        public void sRefresh()
+        {
+            s_txt_money.Text = Game.player.gold.ToString();
+        }
+
+        public void buying(Item purchase)
+        {
+            if (purchase.value <= Game.player.gold)
+            {
+                Game.player.itemAdd(purchase);
+                Game.player.gold -= purchase.value;
+                sRefresh();
+            }
         }
 
         private void s_btn_4_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(Shop.shopItemD);
+            buying(Shop.shopItemD);
         }
 
         private void s_btn_3_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(Shop.shopItemC);
+            buying(Shop.shopItemC);
         }
 
         private void s_btn_2_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(Shop.shopItemB);
+            buying(Shop.shopItemB);
         }
 
         private void s_btn_1_Click(object sender, EventArgs e)
         {
-            Game.player.itemAdd(Shop.shopItemA);
+            buying(Shop.shopItemA);
         }
 
         private void s_txt_title_TextChanged(object sender, EventArgs e)

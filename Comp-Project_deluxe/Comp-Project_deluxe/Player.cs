@@ -17,21 +17,39 @@ namespace Comp_Project_deluxe
         public uint health { get; set; }
         public uint meleeD { get; set; }
         public uint rangedD { get; set; }
-        public Item meleeWeapon { get; set; }
-        public Item rangedWeapon { get; set; }
+        public Melee meleeWeapon { get; set; }
+        public Ranged rangedWeapon { get; set; }
         public Item armourWearing { get; set; }
+        public uint gold { get; set; }
 
-        public Player(uint health, uint meleeD, uint rangedd)
+        public Player(uint health, uint meleeD, uint rangedd, uint gold)
         {
             inventory = new List<Item>();
             this.health = health;
             this.meleeD = meleeD;
             this.rangedD = rangedd;
+            this.gold = gold;
         }
 
         public void pRefresh()
         {
-
+            if (meleeWeapon != null)
+            {
+                this.meleeD = meleeWeapon.Mdamage;
+            }
+            else
+            {
+                this.meleeD = INIT_PLAYER_MELEED;
+            }
+            if (rangedWeapon != null)
+            {
+                this.rangedD = rangedWeapon.Rdamage;
+            }
+            else
+            {
+                this.rangedD = INIT_PLAYER_RANGEDD;
+            }
+            
         }
 
         public void itemAdd(Item item)

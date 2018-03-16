@@ -27,6 +27,49 @@ namespace Comp_Project_deluxe
             B_txt_enemyHealth.Text = occupant.health.ToString();
         }
 
+        public void yourTurn(int doctrine)
+        {
+            if (occupant.health >= 400000)
+            {
+                occupant.health = 0;
+            }
+            if (doctrine == 1)
+            {
+                occupant.health -= Game.player.meleeD;
+                B_txt_output.Text += string.Format("You struck the enemy for {0} damage", Game.player.meleeD) + Environment.NewLine;
+            }
+            else
+            {
+                occupant.health -= Game.player.rangedD;
+                B_txt_output.Text += string.Format("You struck the enemy for {0} damage", Game.player.rangedD) + Environment.NewLine;
+            }
+            bRefresh();
+            enemyTurn();
+        }
+
+        public void enemyTurn()
+        {
+            if (occupant.myTurnHit() == false)
+            {
+                B_txt_output.Text += "The Enemy Missed" + Environment.NewLine;
+            }
+            else
+            {
+                if (occupant.myTurnWeapon() == 1)
+                {
+                    B_txt_output.Text += string.Format("The Enemy struck for {0} damage", occupant.meleeDamage) + Environment.NewLine;
+                    Game.player.health -= occupant.meleeDamage;
+                    bRefresh();
+                }
+                else
+                {
+                    B_txt_output.Text += string.Format("The Enemy struck for {0} damage", occupant.rangedDamage) + Environment.NewLine;
+                    Game.player.health -= occupant.rangedDamage;
+                    bRefresh();
+                }
+            }
+        }
+
         private void B_txt_playerHealth_TextChanged(object sender, EventArgs e)
         {
             
@@ -44,33 +87,15 @@ namespace Comp_Project_deluxe
 
         private void B_btn_Attack_Click(object sender, EventArgs e)
         {
-            occupant.health -= Game.player.meleeD;
-            if (occupant.health >= 400000)
-            {
-                occupant.health = 0;
-            }
-            bRefresh();
-            if (occupant.myTurnHit() == false)
-            {
-                B_txt_output.Text += "The Enemy Missed" + Environment.NewLine;
-            }
-            else
-            {
-                if (occupant.myTurnWeapon() == 1)
-                {
-                    B_txt_output.Text += ("The Enemy struck for {0} damage", occupant.meleeDamage;
-                }
-            }
+            
+            yourTurn(1);
+
         }
 
         private void B_btn_Ranged_Click(object sender, EventArgs e)
         {
-            occupant.health -= Game.player.rangedD;
-            if (occupant.health >= 400000)
-            {
-                occupant.health = 0;
-            }
-            bRefresh();
+            
+            yourTurn(2);
         }
 
         private void B_btn_Inv_Click(object sender, EventArgs e)

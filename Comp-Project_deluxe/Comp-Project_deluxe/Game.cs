@@ -21,12 +21,13 @@ namespace Comp_Project_deluxe
         public const uint INIT_PLAYER_HEALTH = 100;
         public const uint INIT_PLAYER_MELEED = 3;
         public const uint INIT_PLAYER_RANGEDD = 5;
+        public const uint INIT_PLAYER_GOLD = 99999;
 
         //Boss constants
 
         public const uint INIT_APPLEBOSS_HEALTH = 20;
-        public const uint INIT_APPLEBOSS_MELEEDAMAGE = 1;
-        public const uint INIT_APPLEBOSS_RANGEDDAMAGE = 3;
+        public const uint INIT_APPLEBOSS_MELEEDAMAGE = 5;
+        public const uint INIT_APPLEBOSS_RANGEDDAMAGE = 10;
         public const uint INIT_APPLEBOSS_ACCURACY = 80;
 
         public static Player player; // Our player
@@ -43,7 +44,7 @@ namespace Comp_Project_deluxe
         {
             InitializeComponent();
 
-            player = new Player(INIT_PLAYER_HEALTH, INIT_PLAYER_MELEED, INIT_PLAYER_RANGEDD);
+            player = new Player(INIT_PLAYER_HEALTH, INIT_PLAYER_MELEED, INIT_PLAYER_RANGEDD, INIT_PLAYER_GOLD);
             r1 = new Arena();
             r2 = new Room();
             r3 = new Arena();

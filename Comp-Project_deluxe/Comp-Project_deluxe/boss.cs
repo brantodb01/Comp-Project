@@ -12,13 +12,14 @@ namespace Comp_Project_deluxe
         public uint meleeDamage { get; set; }
         public uint rangedDamage { get; set; }
         public uint accuracy { get; set; }
-        Random attackType;
-        Random hitC;
+        Random attackType = new Random();
+        Random hitC = new Random();
+        
 
 
-        public Boss(uint health)
+        public Boss()
         {
-            this.health = health;
+            health = 999;
             meleeDamage = 1;
             rangedDamage = 1;
             accuracy = 1;
@@ -40,7 +41,7 @@ namespace Comp_Project_deluxe
 
         public int myTurnWeapon()
         {
-            return attackType.Next(1, 2);
+            return attackType.Next(1, 3);
 
         }
     }
@@ -48,8 +49,9 @@ namespace Comp_Project_deluxe
     class AppleBoss : Boss
     {
 
-        public AppleBoss(uint health, uint meleeDamage, uint rangedDamage, uint accuracy) : base(health)
+        public AppleBoss(uint health, uint meleeDamage, uint rangedDamage, uint accuracy)
         {
+            this.health = health;
             this.meleeDamage = meleeDamage;
             this.rangedDamage = rangedDamage;
             this.accuracy = accuracy;

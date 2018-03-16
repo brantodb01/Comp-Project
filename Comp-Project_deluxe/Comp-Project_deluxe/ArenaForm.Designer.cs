@@ -53,6 +53,7 @@
             this.B_txt_output.Multiline = true;
             this.B_txt_output.Name = "B_txt_output";
             this.B_txt_output.ReadOnly = true;
+            this.B_txt_output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.B_txt_output.Size = new System.Drawing.Size(360, 244);
             this.B_txt_output.TabIndex = 1;
             this.B_txt_output.TextChanged += new System.EventHandler(this.B_txt_output_TextChanged);
