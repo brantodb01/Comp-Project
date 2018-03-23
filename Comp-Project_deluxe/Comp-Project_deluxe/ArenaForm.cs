@@ -25,14 +25,19 @@ namespace Comp_Project_deluxe
         {
             B_txt_playerHealth.Text = Game.player.health.ToString();
             B_txt_enemyHealth.Text = occupant.health.ToString();
+
+            if (Game.player.health == 0)
+            {
+                //open leaderboard
+            }
+            if (occupant.health == 0)
+            {
+                //Game.player.score += 
+            }
         }
 
         public void yourTurn(int doctrine)
         {
-            if (occupant.health >= 400000)
-            {
-                occupant.health = 0;
-            }
             if (doctrine == 1)
             {
                 occupant.health -= Game.player.meleeD;
@@ -42,6 +47,10 @@ namespace Comp_Project_deluxe
             {
                 occupant.health -= Game.player.rangedD;
                 B_txt_output.Text += string.Format("You struck the enemy for {0} damage", Game.player.rangedD) + Environment.NewLine;
+            }
+            if (occupant.health >= 400000)
+            {
+                occupant.health = 0;
             }
             bRefresh();
             enemyTurn();
@@ -59,15 +68,23 @@ namespace Comp_Project_deluxe
                 {
                     B_txt_output.Text += string.Format("The Enemy struck for {0} damage", occupant.meleeDamage) + Environment.NewLine;
                     Game.player.health -= occupant.meleeDamage;
-                    bRefresh();
                 }
                 else
                 {
                     B_txt_output.Text += string.Format("The Enemy struck for {0} damage", occupant.rangedDamage) + Environment.NewLine;
                     Game.player.health -= occupant.rangedDamage;
-                    bRefresh();
                 }
             }
+
+            if (Game.player.health >= 400000)
+            {
+                Game.player.health = 0;
+                ScoreDAO ded = new ScoreDAO();
+                
+                ded.savePlayerScore(Game.player, Game.player.score);
+
+            }
+            bRefresh();
         }
 
         private void B_txt_playerHealth_TextChanged(object sender, EventArgs e)

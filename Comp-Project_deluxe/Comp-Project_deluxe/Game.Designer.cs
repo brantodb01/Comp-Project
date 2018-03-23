@@ -49,6 +49,7 @@
             this.E_btn_inventory = new System.Windows.Forms.Button();
             this.E_btn_shop = new System.Windows.Forms.Button();
             this.E_btn_battle = new System.Windows.Forms.Button();
+            this.E_btn_close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // E_tb_output
@@ -238,11 +239,22 @@
             this.E_btn_battle.UseVisualStyleBackColor = true;
             this.E_btn_battle.Click += new System.EventHandler(this.E_btn_battle_Click);
             // 
+            // E_btn_close
+            // 
+            this.E_btn_close.Location = new System.Drawing.Point(-1, 537);
+            this.E_btn_close.Name = "E_btn_close";
+            this.E_btn_close.Size = new System.Drawing.Size(75, 23);
+            this.E_btn_close.TabIndex = 12;
+            this.E_btn_close.Text = "Close";
+            this.E_btn_close.UseVisualStyleBackColor = true;
+            this.E_btn_close.Click += new System.EventHandler(this.E_btn_close_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 563);
+            this.Controls.Add(this.E_btn_close);
             this.Controls.Add(this.E_btn_battle);
             this.Controls.Add(this.E_btn_shop);
             this.Controls.Add(this.E_btn_inventory);
@@ -295,6 +307,7 @@
         private System.Windows.Forms.Button E_btn_inventory;
         private System.Windows.Forms.Button E_btn_shop;
         private System.Windows.Forms.Button E_btn_battle;
+        private System.Windows.Forms.Button E_btn_close;
     }
 }
 

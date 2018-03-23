@@ -11,13 +11,17 @@ namespace Comp_Project_deluxe
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+
+        public static Menu menu;
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Game());
-            
+            menu = new Menu();
+            Application.Run(menu);
         }
     }
 }

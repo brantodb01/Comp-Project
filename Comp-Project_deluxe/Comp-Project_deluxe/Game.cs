@@ -40,11 +40,11 @@ namespace Comp_Project_deluxe
         Room lastRoom;
         ShopForm Shop = new ShopForm();
 
-        public Game()
+        public Game(string userName)
         {
             InitializeComponent();
 
-            player = new Player(INIT_PLAYER_HEALTH, INIT_PLAYER_MELEED, INIT_PLAYER_RANGEDD, INIT_PLAYER_GOLD);
+            player = new Player(INIT_PLAYER_HEALTH, INIT_PLAYER_MELEED, INIT_PLAYER_RANGEDD, INIT_PLAYER_GOLD, userName);
             r1 = new Arena();
             r2 = new Room();
             r3 = new Arena();
@@ -54,7 +54,7 @@ namespace Comp_Project_deluxe
             r7 = new Arena();
             r8 = new Shop();
             r9 = new Room();
-            r10 = new Arena( );
+            r10 = new Arena();
             r11 = new Arena();
             r12 = new Shop();
             r13 = new Arena();
@@ -116,6 +116,7 @@ namespace Comp_Project_deluxe
         {
             if (currRoom.GetType() == typeof(Arena))
             {
+                ((Arena)currRoom).vArena.bRefresh();
                 ((Arena)currRoom).vArena.ShowDialog();
             }
             else
@@ -124,7 +125,11 @@ namespace Comp_Project_deluxe
             }
         }
 
-        // 
+        private void E_btn_close_Click(object sender, EventArgs e)
+        {
+            Program.menu.Close();
+        }
+
         bool isValidMove(Orientation orientation)
         {
             // check if user move is valid t if yes f if no
@@ -189,7 +194,7 @@ namespace Comp_Project_deluxe
 
         private void E_btn_inventory_Click(object sender, EventArgs e)
         {
-            new Inventory().Show();
+            new Inventory().ShowDialog();
         }
     }
 }

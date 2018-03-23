@@ -21,14 +21,17 @@ namespace Comp_Project_deluxe
         public Ranged rangedWeapon { get; set; }
         public Item armourWearing { get; set; }
         public uint gold { get; set; }
+        public uint score { get; set; }
+        public string userName { get; set; }
 
-        public Player(uint health, uint meleeD, uint rangedd, uint gold)
+        public Player(uint health, uint meleeD, uint rangedd, uint gold, string userName)
         {
             inventory = new List<Item>();
             this.health = health;
             this.meleeD = meleeD;
             this.rangedD = rangedd;
             this.gold = gold;
+            this.userName = userName;
         }
 
         public void pRefresh()
