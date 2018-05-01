@@ -5,10 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using static Comp_Project_deluxe.Game;
 
+
+/// <summary>
+/// Establishes the Room class
+/// </summary>
 namespace Comp_Project_deluxe
 {
     public class Room
     {
+        // Gives each room the attributes for its neighbours
+
         public List<Item> items { get; set; }
         public Room aboveNeighbour { get; set; }
         public Room belowNeighbour { get; set; }
@@ -16,6 +22,7 @@ namespace Comp_Project_deluxe
         public Room rightNeighbour { get; set; }
 
         // Returns true if this room has a neighbour in the said location, else false
+        // validation for if a room is located there
         public bool hasNeighbour(Orientation location)
         {
             switch (location)
@@ -27,6 +34,8 @@ namespace Comp_Project_deluxe
             }
             throw new Exception("magic");
         }
+
+        // returns the rom which is neighbouring in a particular direction
 
         public Room getNeighbour(Orientation location)
         {
@@ -40,6 +49,8 @@ namespace Comp_Project_deluxe
             throw new Exception("magic");
         }
 
+        // overrides the string for each room to include the information about it
+
         public override string ToString()
         {
             return string.Format(
@@ -49,6 +60,7 @@ namespace Comp_Project_deluxe
         }
 
         // Links a and b together.
+        // used to link rooms together so they have neighbours
         public void addNeighbour(Room b, Orientation orientation)
         {
             switch (orientation)

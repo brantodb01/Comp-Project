@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Arena Class creation
+/// </summary>
 namespace Comp_Project_deluxe
 {
+    //creation of Arena class
     public class Arena : Room
     {
         

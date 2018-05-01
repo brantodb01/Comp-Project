@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Creates the leaderboard form
+/// </summary>
 namespace Comp_Project_deluxe
 {
+    //leaderboard form made
     public partial class Leaderboard : Form
     {
         public Leaderboard()
@@ -21,17 +24,19 @@ namespace Comp_Project_deluxe
         {
 
         }
-
+        //closes form
         private void L_btn_exit_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
         }
+        
 
         private void Leaderboard_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cSProjDataSet.PlayerScore' table. You can move, or remove it, as needed.
+            // This line of code loads data into the 'cSProjDataSet.PlayerScore' table.
             this.playerScoreTableAdapter.Fill(this.cSProjDataSet.PlayerScore);
 
         }
+        
     }
 }

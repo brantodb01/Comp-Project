@@ -80,10 +80,10 @@ namespace Comp_Project_deluxe
             {
                 Game.player.health = 0;
                 ScoreDAO ded = new ScoreDAO();
-                
-                ded.savePlayerScore(Game.player, Game.player.score);
-
+                ded.savePlayerScore(Game.player.userName, Game.player.score);
+                new Leaderboard().ShowDialog();
             }
+
             bRefresh();
         }
 

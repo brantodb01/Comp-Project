@@ -29,31 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.scoreBoard = new System.Windows.Forms.DataGridView();
+            this.playerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playerScoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cSProjDataSet = new Comp_Project_deluxe.CSProjDataSet();
             this.L_btn_exit = new System.Windows.Forms.Button();
             this.playerScoreTableAdapter = new Comp_Project_deluxe.CSProjDataSetTableAdapters.PlayerScoreTableAdapter();
-            this.playerUsernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreBoard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerScoreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSProjDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // scoreBoard
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.scoreBoard.AutoGenerateColumns = false;
+            this.scoreBoard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scoreBoard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.playerUsernameDataGridViewTextBoxColumn,
             this.scoreDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.playerScoreBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(244, 355);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.scoreBoard.DataSource = this.playerScoreBindingSource;
+            this.scoreBoard.Location = new System.Drawing.Point(12, 24);
+            this.scoreBoard.Name = "scoreBoard";
+            this.scoreBoard.Size = new System.Drawing.Size(244, 355);
+            this.scoreBoard.TabIndex = 0;
+            this.scoreBoard.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // playerUsernameDataGridViewTextBoxColumn
+            // 
+            this.playerUsernameDataGridViewTextBoxColumn.DataPropertyName = "playerUsername";
+            this.playerUsernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.playerUsernameDataGridViewTextBoxColumn.Name = "playerUsernameDataGridViewTextBoxColumn";
+            // 
+            // scoreDataGridViewTextBoxColumn
+            // 
+            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "score";
+            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
+            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
             // 
             // playerScoreBindingSource
             // 
@@ -79,29 +91,17 @@
             // 
             this.playerScoreTableAdapter.ClearBeforeFill = true;
             // 
-            // playerUsernameDataGridViewTextBoxColumn
-            // 
-            this.playerUsernameDataGridViewTextBoxColumn.DataPropertyName = "playerUsername";
-            this.playerUsernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.playerUsernameDataGridViewTextBoxColumn.Name = "playerUsernameDataGridViewTextBoxColumn";
-            // 
-            // scoreDataGridViewTextBoxColumn
-            // 
-            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "score";
-            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
-            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
-            // 
             // Leaderboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(263, 412);
             this.Controls.Add(this.L_btn_exit);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.scoreBoard);
             this.Name = "Leaderboard";
             this.Text = "Leaderboard";
             this.Load += new System.EventHandler(this.Leaderboard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scoreBoard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerScoreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSProjDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -110,7 +110,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView scoreBoard;
         private System.Windows.Forms.Button L_btn_exit;
         private CSProjDataSet cSProjDataSet;
         private System.Windows.Forms.BindingSource playerScoreBindingSource;

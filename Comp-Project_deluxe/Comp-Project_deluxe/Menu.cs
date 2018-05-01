@@ -10,22 +10,29 @@ using System.Windows.Forms;
 
 namespace Comp_Project_deluxe
 {
+    /// <summary>
+    /// Creates the main Menu to show either the leaderboard 
+    /// start a new game and provide a name
+    /// </summary>
+    
+    //creates the menu as a subclass of Form
     public partial class Menu : Form
     {
-
-        Game Play;
-        Leaderboard scoreBoard;
+        // creates classes that would be used depending on the chosen option
+        public Game Play;
+        public Leaderboard scoreBoard;
         public Menu()
         {
-            InitializeComponent();
+            InitializeComponent(); // starts the program
         }
 
+        //starts a new game and pulls the input name 
         private void M_btn_play_Click(object sender, EventArgs e)
         {
-            string Name = M_txt_name.Text;
+            string Name = M_txt_name.Text; //takes input name
             Play = new Game(Name);
-            Hide();
-            Play.Show();
+            Hide(); // hides main menu
+            Play.Show(); // shows Explore Form
             
         }
 
@@ -34,10 +41,12 @@ namespace Comp_Project_deluxe
 
         }
 
+        //Shows leaderboard
+
         private void M_btn_leaderboard_Click(object sender, EventArgs e)
         {
             scoreBoard = new Leaderboard();
-            scoreBoard.Show();
+            scoreBoard.ShowDialog();
         }
     }
 }
